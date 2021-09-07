@@ -33,21 +33,15 @@
   "license": "MIT",
   "author": "foray1010",
   "sideEffects": false,
-  "exports": {
-    "import": "./dist/index.js",
-    "require": "./dist/index.js"
-  },
-  "main": "./dist/index.cjs",
-  "unpkg": "./dist/index.umd.js",
-  "module": "./dist/index.mjs",
-  "typings": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "typings": "./build/index.d.ts",
   "files": [
     "dist",
     "*.md"
   ],
   "scripts": {
     "prebuild": "yarn clean:build",
-    "build": "tsc --project tsconfig.build.json",
+    "build": "tsc --project tsconfig.types.json && tsc --project tsconfig.build.json",
     "ci": "npm-run-all -p 'lint:*' 'type:*' && yarn test && size-limit",
     "clean:build": "shx rm -rf dist/ build/dts/",
     "eslint": "eslint --ext=cjs,js,mjs,ts,tsx --ignore-path=node_modules/@foray1010/eslint-config/eslintignore",
