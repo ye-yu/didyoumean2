@@ -1,10 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "./tsconfig.json",
+  // "extends": "./tsconfig.json",
   "compilerOptions": {
-    "emitDeclarationOnly": true,
-    "noEmit": false,
-    "outDir": "build/dts"
+    // "emitDeclarationOnly": true,
+    // "noEmit": false,
+    "outDir": "dist",
+    "esModuleInterop": true
   },
   "files": ["src/index.ts"]
 }
