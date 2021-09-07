@@ -34,8 +34,8 @@
   "author": "foray1010",
   "sideEffects": false,
   "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
+    "import": "./dist/index.js",
+    "require": "./dist/index.js"
   },
   "main": "./dist/index.cjs",
   "unpkg": "./dist/index.umd.js",
@@ -47,11 +47,11 @@
   ],
   "scripts": {
     "prebuild": "yarn clean:build",
-    "build": "tsc --project tsconfig.build.json && rollup --configPlugin \"babel={ babelHelpers: 'runtime', extensions: ['.js', '.ts'] }\" -c",
+    "build": "tsc --project tsconfig.build.json",
     "ci": "npm-run-all -p 'lint:*' 'type:*' && yarn test && size-limit",
     "clean:build": "shx rm -rf dist/ build/dts/",
     "eslint": "eslint --ext=cjs,js,mjs,ts,tsx --ignore-path=node_modules/@foray1010/eslint-config/eslintignore",
-    "postinstall": "yarn link && yarn link didyoumean2 && yarn build",
+    "postinstall": "yarn link && yarn link didyoumean2",
     "lint": "npm-run-all -p 'lint:*'",
     "lint:js": "yarn eslint .",
     "lint:md": "yarn remark .",
